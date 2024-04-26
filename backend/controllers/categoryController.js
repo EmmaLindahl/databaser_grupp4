@@ -1,4 +1,5 @@
-//orginalkod
+// function (orginalkod){
+    //orginalkod
 // exports.createCategory = ((req, res) => {
 //     res.send('Här lägger vi till en kategori.');
 // });
@@ -7,19 +8,15 @@
 //     res.send('Här visar vi kategorier.')
 // });
 //orginalkod STOP
-
-
-
-//För MongoDB
-//vi hämtar vår category-model och lägger den som en constant i denna filen. (aktuella model)
+// }
 const Category = require ('../models/categories')
-
+//vi hämtar vår Category-model som vi kommer använda för POST och GET.
 
 //vid en post-req
+//När någon gör en post så hamnar den nya infon i vår databas. Det nya objektet följer modellen som finns i categories.js
 exports.createCategory = ( async (req, res) => {
     try {
-        //Hur får jag in en req i den nya categories?? -->Kolla rad 39 i filen: bookControllers
-        //När någon gör en post så hamnar den nya infon i vår databas
+        //Hur får jag in en req i den nya categories?? -->Kolla rad 39 i filen: bookController.js
        const newCategory = new Category({ }) 
        await newCategory.save()
         
@@ -29,7 +26,7 @@ exports.createCategory = ( async (req, res) => {
 });
 
 //vid en get-req
-//Letar den efter en liknande struktur som modellen i vår MongoDB databas? Eller varför används modellen i get-request?
+// Express hämtar all info från databasen men presenterar bara infon från modellen. i categories.js
 exports.getCategory = ( async (req, res) => {
     try {
         const allCategories = await Category.find()

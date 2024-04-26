@@ -1,6 +1,8 @@
+//För MongoDB
 const mongoose = require ('mongoose')
 
-//Detta är ett sätt att kontrollera den post-request som kommer in till MongoDB. Vad för info som ska finnas och på vilket sätt.
+//POST: Detta är en model som visar hur nya objekt som läggs in ser ut. Om de fält som är required inte finns med i POST-info -> error
+//GET: Express hämtar all info från databasen men presenterar bara infon från modellen. Om required inte finns i ett objekt -> error
 const Category = new mongoose.Schema ({
     name : {
         type: String,
