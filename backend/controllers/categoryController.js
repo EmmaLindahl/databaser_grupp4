@@ -9,6 +9,7 @@
 // });
 //orginalkod STOP
 // }
+
 const Category = require ('../models/categories')
 //vi hämtar vår Category-model som vi kommer använda för POST och GET.
 

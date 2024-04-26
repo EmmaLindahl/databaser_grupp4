@@ -13,15 +13,21 @@ app.use(cors());
 
 //Ta bort dessa & sätt upp egna routes till våra databaser
     const bookRoutes = require('./routes/bookRoutes');
-    const categoryRoutes = require('./routes/categoryRoutes');
-
+    // const categoryRoutes = require('./routes/categoryRoutes');
     app.use(bookRoutes);
-    app.use(categoryRoutes);
-//till hit
+    // app.use(categoryRoutes);
+    //till hit
+
+
+
+    
+    //Egna Routes:
+    const plantsRoutes = require('./routes/plantsRoutes')
+    app.use(plantsRoutes)
 
 //Vi kallar på vår MongoDB (Vi får tillgång till uppkopplingen)
-const connectionMongoDB = require('./connectionMongoDB')
-connectionMongoDB()
+// const connectionMongoDB = require('./connectionMongoDB')
+// connectionMongoDB()
 
 //Lyssnar efter uppkopplingar, om det blir en uppkoppling så skickas en console.log.
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
