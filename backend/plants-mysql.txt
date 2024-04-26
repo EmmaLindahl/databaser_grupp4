@@ -1,0 +1,38 @@
+create database Grupp_4_SQL;
+
+
+create table BinomialNameTable (
+    BinomialNameId INT NOT NULL AUTO_INCREMENT,
+    BinomialName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (BinomialNameId));
+INSERT INTO BinomialNameTable (BinomialName) VALUES
+('Cannabis sativa'),
+('Humulus'),
+('Celtis australis'),
+('Atropa belladonna'),
+('Datura stramonium'),
+('Mandragora officinarum'),
+('Lamprocapnos spectabilis'),
+('Papaver rhoeas'),
+('Sanguinaria canadensis'),
+('Cicuta virosa'),
+('Petroselinum crispum'),
+('Daucus carota');
+
+select * FROM BinomialNameTable;
+drop table BinomialNameTable;
+
+
+
+CREATE TABLE FamilyTable(
+	FamilyId INT NOT NULL AUTO_INCREMENT,
+	FamilyName VARCHAR(50) NOT NULL,
+	PRIMARY KEY (FamilyId)
+);
+INSERT INTO FamilyTable(FamilyName) VALUES
+('Cannabaceae'),
+('Solanaceae'),
+('Papaveraceae'),
+('Apiaceae');
+select * from FamilyTable;
+drop table FamilyTable;
