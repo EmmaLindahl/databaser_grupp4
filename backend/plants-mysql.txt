@@ -1,4 +1,4 @@
-create database Grupp_4_SQL;
+create database grupp_4;
 
 
 create table BinomialNameTable (
@@ -20,7 +20,6 @@ INSERT INTO BinomialNameTable (BinomialName) VALUES
 ('Daucus carota');
 
 select * FROM BinomialNameTable;
-drop table BinomialNameTable;
 
 
 
@@ -35,4 +34,222 @@ INSERT INTO FamilyTable(FamilyName) VALUES
 ('Papaveraceae'),
 ('Apiaceae');
 select * from FamilyTable;
-drop table FamilyTable;
+
+
+
+
+
+CREATE TABLE GenusTable(
+	GenusId INT NOT NULL AUTO_INCREMENT,
+	GenusName VARCHAR(50) NOT NULL,
+	PRIMARY KEY (GenusId)
+);
+INSERT INTO GenusTable(GenusName) VALUES
+('Cannabis'),
+('Humulus'),
+('Celtis'),
+('Atropa'),
+('Datura'),
+('Mandragora'),
+('Lamprocapnos'),
+('Papaver'),
+('Sanguinaria'),
+('Cicuta'),
+('Petroselinum'),
+('Daucus');
+select * from GenusTable;
+
+
+
+
+
+CREATE TABLE speciesTable(
+	speciesId INT NOT NULL AUTO_INCREMENT,
+	speciesName VARCHAR(50) NOT NULL,
+	PRIMARY KEY (speciesId)
+);
+INSERT INTO speciesTable(speciesName) VALUES
+('C. sativa'),
+('H. lupulus'),
+('C. australis'),
+('A. belladonna'),
+('D. stramonium'),
+('M. officinarum'),
+('L. spectabilis'),
+('P. rhoeas'),
+('S. canadensis'),
+('C. virosa'),
+('P. crispum'),
+('D. carota');
+select * from speciesTable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE NameTable(
+	NameId INT NOT NULL AUTO_INCREMENT,
+	PlantName VARCHAR(50),
+	PlantBinomialName VARCHAR(50),
+    PlantFamilyName VARCHAR(50) NOT NULL,
+	PlantGenusName VARCHAR(50) NOT NULL,
+	PlantSpeciesName VARCHAR(50) NOT NULL,
+	PlantBinomialNameId INT,
+    PlantFamilyId INT,
+	PlantGenusId INT,
+	PlantSpeciesId INT,
+    NameIsbn VARCHAR(50) NOT NULL,
+	PRIMARY KEY (NameId),
+    FOREIGN KEY (PlantBinomialNameId) REFERENCES BinomialNameTable(BinomialNameId),
+    FOREIGN KEY (PlantFamilyId) REFERENCES FamilyTable(FamilyId),
+    FOREIGN KEY (PlantGenusId) REFERENCES GenusTable(GenusId),
+    FOREIGN KEY (PlantSpeciesId) REFERENCES speciesTable(SpeciesId)
+);
+
+-- Unikt index
+CREATE UNIQUE INDEX index_isbn ON NameTable(NameIsbn);
+-- sql (name, binomialName, family, genus, species, photo)
+-- mongo(description, habitat, use)
+
+-- 1 Cannabis
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Cannabis','Cannabis sativa','Cannabaceae','Cannabis','C. sativa',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       1
+      );
+
+-- 2 Hop
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Hop','Humulus','Cannabaceae','Humulus','H. lupulus',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       2
+      );
+
+-- 3 European nettle tree
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('European nettle tree','Celtis australis','Cannabaceae','Celtis','C. australis',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       3
+      );
+
+-- 4 Belladonna
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Belladonna','Atropa belladonna','Solanaceae','Atropa','A. belladonna',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       4
+      );
+
+-- 5 Devil's snare
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Devil´s snare','Datura stramonium','Solanaceae','Datura','D. stramonium',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       5
+      );
+
+-- 6 Mandrake
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Mandrake','Mandragora officinarum','Solanaceae','Mandragora','M. officinarum',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       6
+      );
+
+-- 7 Bleeding heart
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Bleeding heart','Lamprocapnos spectabilis','Papaveraceae','Lamprocapnos','L. spectabilis',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       7
+      );
+
+-- 8 Common poppy
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Common poppy','Papaver rhoeas','Papaveraceae','Papaver','P. rhoeas',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       8
+      );
+
+-- 9 Bloodroot
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Bloodroot','Sanguinaria canadensis','Papaveraceae','Sanguinaria','S. canadensis',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       9
+      );
+
+-- 10 Cowbane
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Cowbane','Cicuta virosa','Apiaceae','Cicuta','C. virosa',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       10
+      );
+
+-- 11 Parsley
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Parsley','Petroselinum crispum','Apiaceae','Petroselinum','P. crispum',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       11
+      );
+
+-- 12 Carrott
+INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
+PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
+VALUES('Carrott','Daucus carota','Apiaceae','Daucus','D. carota',
+       (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
+       (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
+       (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),
+       (SELECT speciesTable.speciesId FROM speciesTable WHERE speciesTable.speciesName = PlantspeciesName),
+       12
+      );
+
+select * FROM NameTable;
