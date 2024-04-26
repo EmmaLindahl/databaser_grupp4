@@ -1,0 +1,123 @@
+use Grupp_4_mongoDB
+
+db.plants.insertMany([
+{
+//cannabis
+description:
+"Cannabis is mostly known for its recreational purposes. However its also grown for its medicinal effects, for the fibre in making strong and durable fabric. Also the seeds can be used to make hemp oil or be eaten raw, and contains lots of protein, healthy fats such as omega-3 and many minerals including iron and magnesium. The plants are often male or female. The flowers of the females can produce up to hundreds of seeds, meanwhile the males give their pollen to the females and afterwards die. All information comes from https://en.wikipedia.org/wiki/Cannabis_sativa",
+habitat:
+"Derives from Eastern Asia, however nowadays grown all over the world in suitable environments.",
+use:
+"Industrial cannabis is legally grown and its seeds used for instance in hempseed oil, cooking, paints, feed birds and in your müsli. The flowers and fruits of the illegally grown plants contain psychoactive chemicals used for recreational and spiritual intention. In history, India has used it for traditional medicine as for purposes such as hypnosis, sedative, painkiller and anti-inflammatory help."
+},
+
+//hop
+{
+description:
+"The hop plant is a bine which wraps itself and climb on anything within reach, and in length can grow 20 to 50 centimetres each week. Ending up with a length from 2 to 15 metres.  When the bine has climbed to the top of an object, it begin to grow horizontally instead. Male and female flowers develop on separate plants, this is because the females produce the flowers used in brewing beer and if pollinated by the males the flowers will no longer be suitable for beer making. All information comes from https://en.wikipedia.org/wiki/Humulus",
+habitat:
+"Derives from regions in the Northern Hemisphere.",
+use:
+"Hops are used when brewing beer or added when the beer finished ferment. There’s substance in the hops that are under research for possible health benefits."
+},
+
+//european nettle tree
+{
+description:
+"European Nettle Tree can grow up to 25 metres, with smooth and grey bark. Prefers a more mediterranean climate. Its fruit is 1 centimetres wide, dark purple looking like a berry. Enjoyed by wildlife, especially birds. You can find one of these trees, with 18 metres in height and up to 5 metres in width, planted year 1550 by a church in the Provence region in south of France. All information comes from https://en.wikipedia.org/wiki/Celtis_australis",
+habitat:
+"Derives from the south of Europe, Northern Africa and parts of Asia.",
+use:
+"The fruits of this tree can be cooked or eaten raw. Can also be used for medicinal purposes such as menstruation, colic and diarrhea. From the bark you can use yellow dye and its wood is strong and durable, therefor very commonly used as walking sticks."
+},
+
+//belladonna
+{
+description:
+"Belladonna is one of the most poisonous plants in the world, with pretty bell shaped purple flowers and can reach up to 2 metres and the leaves can grow to 18 centimetres. The berries looks similar to blueberries with a diameter of 1.5 centimetres. This is very unfortunate since the leaves and berries are very toxic when consumed, which causes hallucinations and delirium. Other negative side effects occur such as blurred vision, loss of balance, slurred speech, rash and headache. Also may increase risk of pregnancy complications, psychiatric disorders, among others.  Luckily there is an antidote if taken in time. However rabbits and cattle are the only animals, who can eat belladonna without any side effects. All information comes from https://en.wikipedia.org/wiki/Atropa_belladonna",
+habitat:
+"Derives from Europe and Western Asia, including Turkey. Nowadays is also growing in Canada, North Africa and the United States.",
+use:
+"Belladonna is used for cosmetics, dietary supplements, medicinal uses, alternative medicine and as a recreational drug. In history it has also been used as poison. As herbal medicine it has been used for among all pain reliever, anti-inflammatory purposes and to treat menstrual problems. It is also used as a recreational drug with its effects such as hallucinations and delirium, however of course dangerous and risk of overdose. When consuming Belladonna, the effects last for 3-4 hours, while visual hallucinations can last for 3-4 days. "
+},
+
+//devil's snare
+{
+description:
+"Devil’s snare is a poisonous flowering herb, growing as a bush up to a height from 60 to 150 centimetres and the leaves grow to the length of 8 to 20 centimetres. Its fragrant flowers grow during the summer as mush as 6 to 9 centimetres in length, shaped like a trumpet with colours of cream or violet. All information comes from https://en.wikipedia.org/wiki/Datura_stramonium",
+habitat:
+"Derives from Central America, since it’s an aggressive invasive weed it has been spread across the world.",
+use:
+"Has often been used in traditional medicine to treat different kinds of symptoms. It has also been used for spiritual and recreational usage, gives effects such as strong, vivid visions. However taking it is unpleasant, giving delirium and possibly death. "
+},
+
+//mandrake
+{
+description:
+"Mandragora, often known as mandrake, is a perennial herbaceous plant with ovate leaves arranged in a rosette, a thick upright root, often branched, and bell-shaped flowers followed by yellow or orange berries. In history mandragora was often used as amulets to bring fortune and cure sterility. People thought the root looked like a tiny human. Therefor it was believed that those who pulled up the root would be sent to hell and the mandrake root would scream when pulled up from the ground, killing everyone hearing it. So the roots were instead pulled up by animal, by tying the root around the animals body. All information comes from https://en.wikipedia.org/wiki/Mandragora_officinarum",
+habitat:
+"Derives from regions around the Mediterranean Sea.",
+use:
+"Since mandrakes roots looks like tiny humans and causes delirium and hallucinations. They have for centuries been used for religious and spiritual purposes, also in magic rituals by those who see themselves as witches. In ancient times it was used as painkiller during surgery."
+},
+
+//bleeding heart
+{
+description:
+"The bleeding heart grows up to 120 centimetres with width up to 45 centimetres. Its flowers resemble the shape of a bright fuchsia-pink heart with a white droplet underneath.  In a moist and cool climate, it will grow in full sun, but in warmer and drier climates it requires some shade. All information comes from https://en.wikipedia.org/wiki/Lamprocapnos",
+habitat:
+"Derives from Siberia, north of China, Korea and Japan.",
+use:
+"It is common to grow these in ornamental purposes. In traditional Chinese medicine the root is used for example detoxification, blood circulation, treat sores, abdominal pain, bruises and swellings. However in overdose, it might cause an uncomfortable feeling in the skin. Oral overdose gives vomiting, diarrhea. In worse cases cause respiratory failure and cardiac paralysis."
+},
+
+//common poppy
+{
+description:
+"It can grow up to 70 centimetres, with red flowers as long as 5-10 centimetres. The flowers have four petals and usually a black spot in the centre. During a warm season the plant can produce up to 400 flowers, but only lasting one day. Nowadays there’s also flowers in other colours created through selective breeding. All information comes from https://en.wikipedia.org/wiki/Papaver_rhoeas",
+habitat:
+"It derives from north Africa, Europe and Asia.",
+use:
+"It’s mostly used in ornamental purposes. But is also known to be consumed since the black seeds are edible, used in pastries or made to oil. Also used as red dye in medicines and wines.  In traditional medicine it’s for example used to treat pain, ache or as sedative."
+},
+
+//bloodroot
+{
+description:
+"In bloodroot, the sap is red and poisonous. It can cause massive scab of dead flesh and also give permanent disfiguring. The plant can grow from 20 up to 50 centimetres, the leaves having a width up to 25 centimetres. The white flowers bloom during spring, opening during sunlight and closing at night. All information comes from https://en.wikipedia.org/wiki/Sanguinaria",
+habitat:
+"Derives from the east of North America.",
+use:
+"Bloodroot is mostly used in ornamental purposes. Historically it was used as traditional medicine by Native Americans, but by them still used as a red dye. Nowadays its extract is used for dental hygiene products, also in animal food additives. There’s clinical studies, however lacking because of the bloodroots toxicity, that shows that a substance in bloodroot may be of help in cancer therapy. "
+},
+
+//cowbane
+{
+description:
+"Cowbane is the most poisonous plant in Sweden and one of the most poisonous plants in the world. Cowbane contain the poison cicutoxin that negatively affect the central nervous system, rapidly cause nausea, vomiting and abdominal pain within 60 minutes. May lead to tremors and seizures, and the treatment is usually unsuccessful. Unfortunately, it looks a lot like the non-poisonous plant Cow parsley, Anthriscus sylvestris, so it’s very easy to make a life fatal mistake when picking flowers. The plant may also be mistaken for parsnip due to its clusters of white roots. They’re found in wet areas, by streambanks and marshy areas. It can grow up to 2 metres, and has small and white flowers, clustered together looking like a white circle. An oily, yellow liquid oozes from cuts to the stems and roots. This liquid has a rank smell resembling parsnips and carrots. All information comes from https://en.wikipedia.org/wiki/Cicuta_virosa",
+habitat:
+"Derives from Europe, north of Asia and northwest of North America. ",
+use:
+"There is a dispute between scholars that it was used historically as poison during execution, however this is yet to be proven. "
+},
+
+//parsley
+{
+description:
+"Parsley can grow up to 75 centimetres, with sparser leaves and flat-topped umbels with the diameter from 3 to 10 centimetres. It has lots of 2milimetres yellow flowers. However the first year it only forms a rosette of tripinnate leaves with length from 10 to 25 centimetres with lots of 1 to 3 centimetres leaflets. It’s often grown from seed in moist, well drained soil with lots of sun. Many different species of wildlife enjoys parsley, such as bees and also swallowtail butterflies who uses it as host plant for their larvae to feed on before turning into a butterfly. All information comes from https://en.wikipedia.org/wiki/Parsley",
+habitat:
+"Derives from Greece, former Yugoslavia and Morocco. Is nowadays widely spread across the world.",
+use:
+"Many dishes are served with fresh parsley sprinkled on top. Often used in cooking because of its flavor, such as in snack, soups and stews. Pregnant women should avoid eating too much of parsley since it may have side effects such as inducing labor."
+},
+
+//carrott
+{
+description:
+"Carrots can grow from 5 to 50 centimetres in length and from 1 to 10 centimetres in width. During its first year it produce lots of sugar to store in the root to provide energy for the plant to flower during the second year. It’s a root vegetable commonly in the colour orange, however you can also find carrots in black, white, red, yellow and purple colours. All information comes from https://en.wikipedia.org/wiki/Carrot",
+habitat:
+"Derives from the wild carrot, Daucus carota, native to Europe and Southwestern Asia.",
+use:
+"It’s eaten raw or cooked, and in the beginning, carrots were grown for their aromatic leaves and seeds. Nowadays the most eaten part of the plant is the root, sometimes the stem and leaves are also eaten. "
+}
+])
