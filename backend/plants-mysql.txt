@@ -1,4 +1,4 @@
-create database grupp_4;
+create database Grupp_4_SQL;
 
 
 create table BinomialNameTable (
