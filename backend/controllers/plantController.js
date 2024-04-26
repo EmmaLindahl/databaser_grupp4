@@ -16,3 +16,13 @@ exports.getPlants = (async(req, res) => {
     }
     
 })
+
+
+
+//Filips controllers
+
+//Melas controllers
+
+//Emmas controllers
+
+//Charlies controllers

@@ -11,4 +11,12 @@ router.get('/api/plants', plantController.getPlants)
 // router.put()
 // router.delete()
 
+//Filips Routes
+
+//Mela Routes
+
+//Emmas Routes
+
+//Charlie Routes
+
 module.exports = router
