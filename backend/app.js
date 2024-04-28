@@ -22,11 +22,11 @@ app.use(cors());
 
     //Egna Routes:
     //MySQL - funkar
-    const plantsRoutes = require('./routes/plantsRoutes')
-    app.use(plantsRoutes)
+    const plantsRoutesSQL = require('./routes/plantsRoutesSQL')
+    app.use(plantsRoutesSQL)
     //MongoDB - funkar inte
-    const habitatRoutes = require('./routes/plantRoutesMongoDB')
-    app.use(habitatRoutes);
+    const plantRoutesMongoDBRoutes = require('./routes/plantRoutesMongoDB')
+    app.use(plantRoutesMongoDBRoutes);
 
 //Vi kallar på vår MongoDB (Vi får tillgång till uppkopplingen)
 const connectionMongoDB = require('./connectionMongoDB')

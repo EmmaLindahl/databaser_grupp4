@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const plantController = require('../controllers/plantController')
+const plantController = require('../controllers/plantControllerSQL')
 
 //SQL
 
@@ -16,6 +16,10 @@ router.get('/api/plants', plantController.getPlants)
 //Mela Routes
 
 //Emmas Routes
+router.get('/api/species', plantController.getSpecies)
+router.post('/api/species', plantController.createSpecies)
+router.put('/api/species', plantController.updateSpecies)
+router.delete('/api/species', plantController.deleteSpecies)
 
 //Charlie Routes
 
