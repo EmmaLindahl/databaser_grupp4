@@ -4,9 +4,7 @@ exports.getPlants = (async(req, res) => {
     let sql = "SELECT PlantName, PlantBinomialName, PlantFamilyName FROM NameTable"
     try{
         await connectionMySQL.query(sql, (error, results, fields) => {
-            if(error){
                 if (error) throw error
-            }
             res.json(results)
         })
     }catch(error){
@@ -31,9 +29,7 @@ exports.getSpecies= (async(req, res) => {
     let sql = "SELECT * FROM speciesTable"
     try{
         await connectionMySQL.query(sql, (error, results, fields) => {
-            if(error){
                 if (error) throw error
-            }
             res.json(results)
         })
     }catch(error){
@@ -61,9 +57,7 @@ exports.createSpecies = (async(req, res) => {
 
     try{
         await connectionMySQL.query(sql, params, (error, results, fields) => {
-            if (error) {
                 if (error) throw error;
-            }
             return res.status(201).json({
                 success: true,
                 error: '',
@@ -101,9 +95,7 @@ exports.updateSpecies = (async(req, res) => {
 
     try{
         await connectionMySQL.query(sql, params, (error, results, fields) => {
-            if (error) {
                 if (error) throw error;
-            }
             return res.status(201).json({
                 success: true,
                 error: ''
@@ -133,9 +125,7 @@ exports.deleteSpecies = (async(req, res) => {
 
     try{
         await connectionMySQL.query(sql, [speciesId], (error, results, fields) => {
-            if (error) {
                 if (error) throw error;
-            }
             return res.status(201).json({
                 success: true,
                 error: '',
