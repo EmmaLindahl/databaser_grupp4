@@ -12,6 +12,10 @@ router.get('/api/plants', plantController.getPlants)
 // router.delete()
 
 //Filips Routes
+router.get('/api/Genus', plantController.getGenus)
+router.post('/api/Genus', plantController.createGenus)
+router.put('/api/Genus', plantController.updateGenus)
+router.delete('/api/Genus', plantController.deleteGenus)
 
 //Mela Routes
 router.get('/api/BinomialName', plantController.getBinomialName)
