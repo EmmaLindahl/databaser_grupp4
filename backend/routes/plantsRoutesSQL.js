@@ -5,7 +5,10 @@ const plantController = require('../controllers/plantControllerSQL')
 //SQL
 
 //Fungerar - byt ut till stora tabellen
-router.get('/api/plants', plantController.getPlants)
+router.get('/api/Plants', plantController.getPlants)
+router.post('/api/Plants', plantController.createPlants)
+router.put('/api/Plants', plantController.updatePlants)
+router.delete('/api/Plants', plantController.deletePlants)
 //Gör även dessa:
 // router.post()
 // router.put()
