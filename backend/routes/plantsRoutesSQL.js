@@ -26,5 +26,9 @@ router.put('/api/Species', plantController.updateSpecies)
 router.delete('/api/Species', plantController.deleteSpecies)
 
 //Charlie Routes
+router.get('/api/FamilyName', plantController.getFamilyName)
+router.post('/api/FamilyName', plantController.createFamilyName)
+router.put('/api/FamilyName', plantController.updateFamilyName)
+router.delete('/api/FamilyName', plantController.deleteFamilyName)
 
 module.exports = router
