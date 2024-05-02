@@ -23,7 +23,7 @@ function flipCard() {
           <div id="flower-image"></div>
           <div class="text-image">
             <h1 id="h1-image">Happy Plant</h1>
-            <h2 id="h2-image">Don't eat them before you contact your local doctor</h2>
+            <h2 id="h2-image">Don't eat them before you consult your local doctor</h2>
           </div>
 
         </div>
@@ -77,6 +77,13 @@ function flipCard() {
 
 <style scoped>
 /* .container {} */
+
+body{
+/* background-color: white; */
+background-image: url("./pictures/background/succulent.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
 
 .card {
 
@@ -150,12 +157,11 @@ function flipCard() {
 }
 
 
-
 .image-container-front,
 .image-container-back {
   flex: 1;
   height: 100%;
-  background-color: #399c7e;
+ background-color: #399c7e;
   /* border: red solid 5px; */
 
 }
