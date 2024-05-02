@@ -9,12 +9,12 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
+    {
+      path: '/upload',
+      name: 'upload',
 
-    //   component: () => import('../views/AboutView.vue')
-    // }
+      component: () => import('../views/PostFormView.vue')
+    }
   ]
 })
 
