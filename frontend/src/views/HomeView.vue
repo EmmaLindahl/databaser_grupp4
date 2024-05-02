@@ -47,6 +47,7 @@ useText.value = "Use: " + fetchDataMongoDB.value[index].use
 </script>
 
 <template>
+
   <main>
     <div id="plantInfoContainer">
       <div v-if="loading">Loading...</div>
