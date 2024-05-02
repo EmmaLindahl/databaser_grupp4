@@ -17,6 +17,6 @@ import PostForm from '../components/PostForm.vue';
   justify-content: center;
   align-items: center;
   height: 98vh;
-  background-color: rgb(98, 192, 240);
+ background-color: none;
 }
 </style>
