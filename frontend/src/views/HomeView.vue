@@ -1,20 +1,14 @@
-<!-- Orginalkod: -->
-<!-- <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template> -->
-
 <script setup>
 import { ref, onMounted } from 'vue';
 
 const loading = ref(true);
-const postData = ref(null);
-const postData2 = ref(null)
+const fetchDataSQL = ref(null);
+const fetchDataMongoDB = ref(null)
+let plantNameText = ref(null)
+let habitatText = ref(null)
+let descriptionText = ref(null)
+let useText = ref(null)
+
 
 onMounted(async () => {
   try {
@@ -22,7 +16,7 @@ onMounted(async () => {
     if (!response.ok) {
       throw new Error('Network response was not ok.');
     }
-    postData.value = await response.json();
+    fetchDataSQL.value = await response.json();
     loading.value = false;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -36,24 +30,58 @@ onMounted(async () => {
     if (!response.ok) {
       throw new Error('Network response was not ok.');
     }
-    postData2.value = await response.json();
+    fetchDataMongoDB.value = await response.json();
     loading.value = false;
   } catch (error) {
     console.error('Error fetching data:', error);
     loading.value = false;
   }
 });
+
+const onClick = (index) =>{
+plantNameText.value = fetchDataSQL.value[index].PlantName
+habitatText.value = "Habitat: " + fetchDataMongoDB.value[index].habitat
+descriptionText.value = "Description: " + fetchDataMongoDB.value[index].description
+useText.value = "Use: " + fetchDataMongoDB.value[index].use
+}
 </script>
 
 <template>
   <main>
-    <div v-if="loading">Loading...</div>
-    <div v-else>
-      <h1 v-for="item in postData">{{ item.PlantName }}</h1>
-      <h1 v-for="item in postData2">{{ item }}</h1>
+    <div id="plantInfoContainer">
+      <div v-if="loading">Loading...</div>
+      <div id="plantBtnContainer" v-else>
+        <button class="plantBtn" @click="onClick(index)" v-for="(item, index) in fetchDataSQL">{{ item.PlantName }}</button>
+      </div>
+    <div id="plantTextContainer">
+      <h2> {{ plantNameText }}</h2>
+      <p> {{ habitatText }} </p>
+      <p> {{ descriptionText }} </p>
+      <p> {{ useText }} </p>
     </div>
-    <TheWelcome />
+    </div>
   </main>
 </template>
 
+<style>
+#plantInfoContainer{
+  display: flex;
+  gap: 20px;
+}
+#plantBtnContainer{
+  display: flex;
+  flex-direction: column; 
+  gap: 10px; 
+  align-self: flex-start;
+}
+.plantBtn{
+  background-color: white;
+  border: none;
+  align-self: flex-start;
+  cursor: pointer;
+}
+#plantTextContainer{
+  width: 60%;
+}
+</style>
 
