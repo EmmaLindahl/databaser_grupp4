@@ -73,13 +73,27 @@ useText.value = "Use: " + fetchDataMongoDB.value[index].use
   flex-direction: column; 
   gap: 10px; 
   align-self: flex-start;
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+  height: 100vh;
 }
 .plantBtn{
-  background-color: white;
+  background-color: #f2f2f2;
+  margin: 2px;
   border: none;
-  align-self: flex-start;
+/*  align-self: flex-start; */
+align-self: center;
   cursor: pointer;
+  font-size: 15px;
+  border-radius: 50px;
 }
+
+.plantBtn:hover {
+  background-color: #e6e6e6;
+  box-shadow: 2px 2px grey;
+}
+
+
 #plantTextContainer{
   width: 60%;
 }
