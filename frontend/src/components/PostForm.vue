@@ -547,4 +547,245 @@ function flipCard() {
 
   }
 }
+
+@media screen and (max-height: 700px) {
+  .card {
+
+    display: flex;
+    width: 800;
+    height: 500px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+
+
+  }
+
+  /* .front { */
+  /* background-color: white; */
+  /* border-radius: 10px; */
+
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* background-color: #399c7e; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* } */
+
+  .back {
+    /* background-color: white; */
+
+    /* background-color: #399c7e; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    transform: rotateY(180deg);
+
+  }
+
+  .flipped {
+    transform: rotateY(180deg);
+  }
+
+  .card-content {
+    flex: 1;
+    /* position: relative; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* display: flex; */
+    /* justify-items: center;
+  align-items: center; */
+    /* border: red solid 5px; */
+    margin-bottom: 12rem;
+  }
+
+
+
+  .image-container-front,
+  .image-container-back {
+    flex: 1;
+    height: 100%;
+    background-color: #399c7e;
+    /* border: red solid 5px; */
+
+  }
+
+  .image-container-front {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .image-container-back {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  /* #flower-image { */
+  /* width: 500px;
+  height: 500px; */
+  /* mix-blend-mode: multiply; */
+  /* background-color: white; */
+  /* background-image: url('../assets/red_flower.png'); */
+  /* background-size: cover; */
+  /* or contain, depending on your preference */
+  /* background-color: transparent;
+  background-blend-mode: normal; */
+
+
+  /* } */
+
+  #h1-content {
+    margin-right: 7.4rem;
+    margin-bottom: .8rem;
+    font-size: 24px;
+    color: #553c30;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  #h2-content {
+    margin: 0 5rem 2rem 5rem;
+    font-size: 12px;
+    color: #553c30;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
+
+  .text-image {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 2rem;
+  }
+
+  #h1-image {
+    color: whitesmoke;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
+
+  #h2-image {
+    color: whitesmoke;
+    margin-bottom: 5rem;
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
+
+  .textarea-field {
+    width: 350px;
+    height: 80px;
+    padding: 8px 16px;
+    margin: .5rem;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    font-size: 12px;
+    resize: none;
+    font-family: Arial, sans-serif;
+
+
+  }
+
+  .input-field {
+    width: 350px;
+    margin: .5rem;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    font-size: 12px;
+    padding: 8px 16px;
+
+    /* margin: 8px 0; */
+  }
+
+  .textarea-field:focus,
+  .input-field:focus {
+    border-color: #399c7e;
+    outline: none;
+  }
+
+
+  /* <button class="button-5" role="button">Button 5</button> */
+
+  /* Button */
+  .button {
+    background-color: #399c7e;
+    border: none;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: .5px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    transition: all 250ms;
+  }
+
+  .button:hover,
+  .button:focus {
+    background-color: #4ebc9b;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
+
+  /* .button:hover {
+  transform: translateX(5px);
+} */
+
+  #next-button {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+  }
+
+  #next-button:hover {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    transform: translateX(5px);
+
+  }
+
+  #back-button {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+  }
+
+  #back-button:hover {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    transform: translateX(-5px);
+
+  }
+
+  #add-button {
+    position: absolute;
+    bottom: 5%;
+    left: 33%;
+  }
+
+  #add-button:hover {
+    position: absolute;
+    bottom: 5%;
+    left: 33%;
+    transform: translateY(-5px);
+
+  }
+}
 </style>
