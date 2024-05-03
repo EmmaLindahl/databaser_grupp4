@@ -1,11 +1,18 @@
 const mongoose = require ('mongoose')
 
-//GET: Express hämtar all info från databasen men presenterar bara infon från modellen. Om required inte finns i ett objekt -> error
 const Plants = new mongoose.Schema ({
+    description : {
+        type: String,
+        required: true
+    },
     habitat : {
         type: String,
-        required: false
+        required: true
     },
+    use: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('plant', Plants)
