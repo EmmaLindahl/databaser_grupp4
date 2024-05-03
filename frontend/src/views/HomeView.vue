@@ -39,14 +39,14 @@ onMounted(async () => {
   }
 });
 
-const onClick = (index) =>{
-plantNameText.value = fetchDataSQL.value[index].PlantName
-console.log(fetchDataSQL.value[index])
-plantManyNameTexts.value = fetchDataSQL.value[index].PlantBinomialName + " | " + fetchDataSQL.value[index].PlantFamilyName 
-+ " | " + fetchDataSQL.value[index].PlantGenusName
-habitatText.value = "Habitat: " + fetchDataMongoDB.value[index].habitat
-descriptionText.value = "Description: " + fetchDataMongoDB.value[index].description
-useText.value = "Use: " + fetchDataMongoDB.value[index].use
+const onClick = (index) => {
+  plantNameText.value = fetchDataSQL.value[index].PlantName
+  console.log(fetchDataSQL.value[index])
+  plantManyNameTexts.value = fetchDataSQL.value[index].PlantBinomialName + " | " + fetchDataSQL.value[index].PlantFamilyName
+    + " | " + fetchDataSQL.value[index].PlantGenusName + " | " + fetchDataSQL.value[index].PlantSpeciesName
+  habitatText.value = "Habitat: " + fetchDataMongoDB.value[index].habitat
+  descriptionText.value = "Description: " + fetchDataMongoDB.value[index].description
+  useText.value = "Use: " + fetchDataMongoDB.value[index].use
 }
 </script>
 
@@ -56,39 +56,42 @@ useText.value = "Use: " + fetchDataMongoDB.value[index].use
     <div id="plantInfoContainer">
       <div v-if="loading">Loading...</div>
       <div id="plantBtnContainer" v-else>
-        <button class="plantBtn" @click="onClick(index)" v-for="(item, index) in fetchDataSQL">{{ item.PlantName }}</button>
+        <button class="plantBtn" @click="onClick(index)" v-for="(item, index) in fetchDataSQL">{{ item.PlantName
+          }}</button>
       </div>
-    <div id="plantTextContainer">
-      <h2> {{ plantNameText }}</h2>
-      <p> {{ plantManyNameTexts }}</p>
-      <p> {{ habitatText }} </p>
-      <p> {{ descriptionText }} </p>
-      <p> {{ useText }} </p>
-    </div>
+      <div id="plantTextContainer">
+        <h2> {{ plantNameText }}</h2>
+        <p> {{ plantManyNameTexts }}</p>
+        <p> {{ habitatText }} </p>
+        <p> {{ descriptionText }} </p>
+        <p> {{ useText }} </p>
+      </div>
     </div>
   </main>
 </template>
 
 <style>
-#plantInfoContainer{
+#plantInfoContainer {
   display: flex;
   gap: 20px;
 }
-#plantBtnContainer{
+
+#plantBtnContainer {
   display: flex;
-  flex-direction: column; 
-  gap: 10px; 
+  flex-direction: column;
+  gap: 10px;
   align-self: flex-start;
   background-color: #f2f2f2;
   padding: 5px 10px;
   height: 100vh;
 }
-.plantBtn{
+
+.plantBtn {
   background-color: #f2f2f2;
   margin: 2px;
   border: none;
-/*  align-self: flex-start; */
-align-self: center;
+  /*  align-self: flex-start; */
+  align-self: center;
   cursor: pointer;
   font-size: 15px;
   border-radius: 50px;
@@ -100,8 +103,7 @@ align-self: center;
 }
 
 
-#plantTextContainer{
+#plantTextContainer {
   width: 60%;
 }
 </style>
-

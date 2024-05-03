@@ -2,7 +2,7 @@ const connectionMySQL = require('../connectionMySQL')
 
 //Get
 exports.getPlants = (async (req, res) => {
-  let sql = "SELECT PlantName, PlantBinomialName, PlantGenusName, PlantFamilyName FROM NameTable"
+  let sql = "SELECT PlantName, PlantBinomialName, PlantGenusName, PlantFamilyName, PlantSpeciesName FROM NameTable"
   try {
     await connectionMySQL.query(sql, (error, results, fields) => {
       if (error) throw error
