@@ -8,23 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-//Kan tas bort för vi ska använda vite.
-// app.use(express.static('public'));
-
-//Ta bort dessa & sätt upp egna routes till våra databaser
-    const bookRoutes = require('./routes/bookRoutes');
-    // const categoryRoutes = require('./routes/categoryRoutes');
-    app.use(bookRoutes);
-    // app.use(categoryRoutes);
-    //till hit
-
-
-
-    //Egna Routes:
-    //MySQL - funkar
+    //Routes:
     const plantsRoutesSQL = require('./routes/plantsRoutesSQL')
     app.use(plantsRoutesSQL)
-    //MongoDB - funkar inte
     const plantRoutesMongoDBRoutes = require('./routes/plantRoutesMongoDB')
     app.use(plantRoutesMongoDBRoutes);
 
