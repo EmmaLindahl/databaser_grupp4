@@ -18,7 +18,8 @@ main {
     align-items: center;
     justify-content: space-between;
     padding: 5px 20px;
-
+    border-bottom: solid 2px lightgrey;
+    background-color: rgba(247, 247, 247, 0.4);
 }
 
 img {
@@ -32,14 +33,14 @@ h2 {
 
 ul {
     list-style: none;
-    background-color: #f2f2f2;
+    /*  background-color: #f2f2f2; */
     padding: 10px 15px;
     text-align: center;
 }
 
 li {
     margin: 5px;
-    padding: 5px 5px;
+    padding: 3px 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
