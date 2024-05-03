@@ -5,8 +5,40 @@ import { ref } from 'vue'
 
 const isFlipped = ref(false)
 
+const formData = {
+  PlantName: ref(''),
+  PlantBinomialName: ref(''),
+  PlantGenusName: ref(''),
+  PlantFamilyName: ref(''),
+  PlantSpeciesName: ref('')
+}
+
 function flipCard() {
   isFlipped.value = !isFlipped.value
+}
+
+async function addPlant() {
+  try {
+    const response = await fetch('http://localhost:3000/api/Plants', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        PlantName: formData.PlantName.value,
+        PlantBinomialName: formData.PlantBinomialName.value,
+        PlantGenusName: formData.PlantGenusName.value,
+        PlantFamilyName: formData.PlantFamilyName.value,
+        PlantSpeciesName: formData.PlantSpeciesName.value
+
+      })
+
+    })
+    const responseData = await response.json()
+    console.log(responseData)
+  } catch (error) {
+    console.error('Error', error)
+  }
 }
 
 </script>
@@ -21,7 +53,7 @@ function flipCard() {
         <div class="image-container-front">
           <!-- <img src="../assets/red_flower.png" alt="Flower" id="flower-image"> -->
           <div id="flower-image">
-            <img id="flower-image" src="../pictures/background/lotus.png">
+            <!-- <img id="flower-image" src="../pictures/background/lotus.png"> -->
           </div>
           <div class="text-image">
             <h1 id="h1-image">Happy Plant</h1>
@@ -34,18 +66,18 @@ function flipCard() {
           <h1 id="h1-content">Add your own Plant</h1>
           <h2 id="h2-content">Carefully read and fill up all the inputs with your plant information</h2>
           <div>
-            <input class="input-field" placeholder="Plant Name">
+            <input class="input-field" placeholder="Plant Name" v-model="formData.PlantName.value">
           </div>
 
           <div>
-            <input class="input-field" placeholder="Binomial">
+            <input class="input-field" placeholder="Binomial" v-model="formData.PlantBinomialName.value">
           </div>
           <div>
-            <input class="input-field" placeholder="Family">
+            <input class="input-field" placeholder="Family" v-model="formData.PlantFamilyName.value">
           </div>
 
           <div>
-            <input class="input-field" placeholder="Genus">
+            <input class="input-field" placeholder="Genus" v-model="formData.PlantGenusName.value">
           </div>
           <div>
             <textarea class="textarea-field" placeholder="Description"></textarea>
@@ -58,7 +90,7 @@ function flipCard() {
       <div class="back">
         <div class="card-content">
           <div>
-            <input class="input-field" placeholder="Species">
+            <input class="input-field" placeholder="Species" v-model="formData.PlantSpeciesName.value">
           </div>
 
           <div>

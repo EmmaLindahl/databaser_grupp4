@@ -8,10 +8,9 @@ import Header from './components/Header.vue'
   <!-- <header>
   </header> -->
 
-  <Header/>
+  <Header />
   <RouterView />
-  <Footer/>
+  <Footer />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

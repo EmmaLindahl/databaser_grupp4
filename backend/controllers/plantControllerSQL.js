@@ -2,7 +2,7 @@ const connectionMySQL = require('../connectionMySQL')
 
 //Get
 exports.getPlants = (async (req, res) => {
-  let sql = "SELECT PlantName, PlantBinomialName, PlantGenusName, PlantFamilyName FROM NameTable"
+  let sql = "SELECT PlantName, PlantBinomialName, PlantGenusName, PlantFamilyName, PlantSpeciesName FROM NameTable"
   try {
     await connectionMySQL.query(sql, (error, results, fields) => {
       if (error) throw error
@@ -18,11 +18,11 @@ exports.getPlants = (async (req, res) => {
 
 //Post
 exports.createPlants = (async (req, res) => {
-  const { PlantName } = req.body;
+  const { PlantName, PlantBinomialName, PlantGenusName, PlantFamilyName, PlantSpeciesName } = req.body;
 
-  // Vi använder Prepared Statements genom ? i SQL-koden och att ange paramatern i query-funktionen
-  let sql = 'INSERT INTO NameTable (PlantName) VALUES (?)';
-  let params = [PlantName];
+  // Vi använder Prepared Statements genom ? i SQL-nokoden och att ange paramatern i query-funktionen
+  let sql = 'INSERT INTO NameTable (PlantName, PlantBinomialName, PlantGenusName, PlantFamilyName, PlantSpeciesName) VALUES (?,?,?,?,?)';
+  let params = [PlantName, PlantBinomialName, PlantGenusName, PlantFamilyName, PlantSpeciesName];
 
   if (!PlantName || PlantName.trim().length < 1) {
     return res.status(400).json({
