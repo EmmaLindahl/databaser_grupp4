@@ -48,7 +48,7 @@ exports.updatePlantInfo = (async(req, res) => {
 exports.deletePlantInfo = (async(req, res) => {
     const { ID } = req.body;
     try {
-        const deletedPlantInfo = await PlantInfoModel.deleteOne({_id: ID});
+        const deletedPlantInfo = await Plants.deleteOne({_id: ID});
         return res.status(200).json(deletedPlantInfo)
     }
     catch (error) {
