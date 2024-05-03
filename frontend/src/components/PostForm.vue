@@ -20,7 +20,9 @@ function flipCard() {
 
         <div class="image-container-front">
           <!-- <img src="../assets/red_flower.png" alt="Flower" id="flower-image"> -->
-          <div id="flower-image"></div>
+          <div id="flower-image">
+            <img id="flower-image" src="../pictures/background/lotus.png">
+          </div>
           <div class="text-image">
             <h1 id="h1-image">Happy Plant</h1>
             <h2 id="h2-image">Don't eat them before you consult your local doctor</h2>
@@ -31,6 +33,9 @@ function flipCard() {
           <!-- <div class="form-content"> -->
           <h1 id="h1-content">Add your own Plant</h1>
           <h2 id="h2-content">Carefully read and fill up all the inputs with your plant information</h2>
+          <div>
+            <input class="input-field" placeholder="Plant Name">
+          </div>
 
           <div>
             <input class="input-field" placeholder="Binomial">
@@ -364,7 +369,7 @@ body {
     /* justify-items: center;
   align-items: center; */
     /* border: red solid 5px; */
-    margin-bottom: 15rem;
+    margin-bottom: 12rem;
   }
 
 
@@ -374,6 +379,7 @@ body {
     flex: 1;
     height: 100%;
     background-color: #399c7e;
+
     /* border: red solid 5px; */
 
   }
@@ -388,19 +394,26 @@ body {
     border-bottom-right-radius: 10px;
   }
 
-  /* #flower-image { */
-  /* width: 500px;
-  height: 500px; */
-  /* mix-blend-mode: multiply; */
-  /* background-color: white; */
-  /* background-image: url('../assets/red_flower.png'); */
-  /* background-size: cover; */
-  /* or contain, depending on your preference */
-  /* background-color: transparent;
-  background-blend-mode: normal; */
+  .flower-image {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+  }
+
+  #flower-image {
+    width: 100%;
+    display: block;
+    /* filter: grayscale(100%); */
+    /* mix-blend-mode: multiply; */
+    /* background-color: white; */
+    /* background-image: url('../pictures/logo/logo_big.png');
+    background-size: cover; */
+    /* or contain, depending on your preference */
+    /* background-color: transparent;
+    background-blend-mode: normal; */
 
 
-  /* } */
+  }
 
   #h1-content {
     margin-right: 7.1rem;
@@ -411,7 +424,7 @@ body {
   }
 
   #h2-content {
-    margin: 0 4rem 4rem 4rem;
+    margin: 0 4rem 2rem 4rem;
     font-size: 15px;
     color: #553c30;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -419,7 +432,7 @@ body {
   }
 
   .text-image {
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -605,7 +618,7 @@ body {
     /* justify-items: center;
   align-items: center; */
     /* border: red solid 5px; */
-    margin-bottom: 12rem;
+    margin-bottom: 10rem;
   }
 
 
@@ -652,7 +665,7 @@ body {
   }
 
   #h2-content {
-    margin: 0 5rem 2rem 5rem;
+    margin: 0 5rem 1rem 5rem;
     font-size: 12px;
     color: #553c30;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
