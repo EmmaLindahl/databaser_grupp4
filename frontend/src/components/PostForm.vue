@@ -78,11 +78,11 @@ function flipCard() {
 <style scoped>
 /* .container {} */
 
-body{
-/* background-color: white; */
-background-image: url("./pictures/background/succulent.jpg");
-background-repeat: no-repeat;
-background-size: cover;
+body {
+  /* background-color: white; */
+  background-image: url("./pictures/background/succulent.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .card {
@@ -161,7 +161,7 @@ background-size: cover;
 .image-container-back {
   flex: 1;
   height: 100%;
- background-color: #399c7e;
+  background-color: #399c7e;
   /* border: red solid 5px; */
 
 }
