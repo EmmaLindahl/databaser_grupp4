@@ -96,23 +96,25 @@ select * from speciesTable;
 
 
 
-CREATE TABLE NameTable(
-	NameId INT NOT NULL AUTO_INCREMENT,
-	PlantName VARCHAR(50),
-	PlantBinomialName VARCHAR(50),
-    PlantFamilyName VARCHAR(50) NOT NULL,
-	PlantGenusName VARCHAR(50) NOT NULL,
-	PlantSpeciesName VARCHAR(50) NOT NULL,
-	PlantBinomialNameId INT,
-    PlantFamilyId INT,
-	PlantGenusId INT,
-	PlantSpeciesId INT,
-    NameIsbn VARCHAR(50) NOT NULL,
-	PRIMARY KEY (NameId),
-    FOREIGN KEY (PlantBinomialNameId) REFERENCES BinomialNameTable(BinomialNameId),
-    FOREIGN KEY (PlantFamilyId) REFERENCES FamilyTable(FamilyId),
-    FOREIGN KEY (PlantGenusId) REFERENCES GenusTable(GenusId),
-    FOREIGN KEY (PlantSpeciesId) REFERENCES speciesTable(SpeciesId)
+CREATE TABLE NameTable
+(
+    NameId              INT         NOT NULL AUTO_INCREMENT,
+    PlantName           VARCHAR(50) not null,
+    PlantBinomialName   VARCHAR(50) not null,
+    PlantFamilyName     VARCHAR(50) not null,
+    PlantGenusName      VARCHAR(50) not null,
+    PlantSpeciesName    VARCHAR(50) not null,
+    PlantBinomialNameId INT,
+    PlantFamilyId       INT,
+    PlantGenusId        INT,
+    PlantSpeciesId      INT,
+    NameIsbn            VARCHAR(50) DEFAULT NULL,
+    PRIMARY KEY (NameId),
+    FOREIGN KEY (PlantBinomialNameId) REFERENCES BinomialNameTable (BinomialNameId),
+    FOREIGN KEY (PlantFamilyId) REFERENCES FamilyTable (FamilyId),
+    FOREIGN KEY (PlantGenusId) REFERENCES GenusTable (GenusId),
+    FOREIGN KEY (PlantSpeciesId) REFERENCES speciesTable (SpeciesId),
+    CONSTRAINT chk_PlantName_not_empty CHECK (LENGTH(PlantName) > 0)
 );
 
 -- Unikt index
@@ -241,10 +243,10 @@ VALUES('Parsley','Petroselinum crispum','Apiaceae','Petroselinum','P. crispum',
        11
       );
 
--- 12 Carrott
+-- 12 Carrot
 INSERT INTO NameTable (PlantName,PlantBinomialName,PlantFamilyName,PlantGenusName,
 PlantSpeciesName,PlantBinomialNameId,PlantFamilyId,PlantGenusId,PlantSpeciesId,NameIsbn)
-VALUES('Carrott','Daucus carota','Apiaceae','Daucus','D. carota',
+VALUES('Carrot','Daucus carota','Apiaceae','Daucus','D. carota',
        (SELECT BinomialNameTable.BinomialNameId FROM BinomialNameTable WHERE BinomialNameTable.BinomialName = PlantBinomialName),
        (SELECT FamilyTable.FamilyId FROM FamilyTable WHERE FamilyTable.FamilyName = PlantFamilyName),
        (SELECT GenusTable.GenusId FROM GenusTable WHERE GenusTable.GenusName = PlantGenusName),

@@ -29,6 +29,7 @@ img {
 h1,
 h2 {
     text-align: center;
+    color: #003300;
 }
 
 ul {
@@ -66,6 +67,6 @@ a:hover {
 }
 
 a:visited {
-    color: purple;
+    color: #000066;
 }
 </style>
