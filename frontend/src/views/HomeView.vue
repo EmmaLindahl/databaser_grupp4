@@ -5,6 +5,7 @@ const loading = ref(true);
 const fetchDataSQL = ref(null);
 const fetchDataMongoDB = ref(null)
 let plantNameText = ref(null)
+let plantManyNameTexts = ref(null)
 let habitatText = ref(null)
 let descriptionText = ref(null)
 let useText = ref(null)
@@ -40,6 +41,9 @@ onMounted(async () => {
 
 const onClick = (index) =>{
 plantNameText.value = fetchDataSQL.value[index].PlantName
+console.log(fetchDataSQL.value[index])
+plantManyNameTexts.value = fetchDataSQL.value[index].PlantBinomialName + " | " + fetchDataSQL.value[index].PlantFamilyName 
++ " | " + fetchDataSQL.value[index].PlantGenusName
 habitatText.value = "Habitat: " + fetchDataMongoDB.value[index].habitat
 descriptionText.value = "Description: " + fetchDataMongoDB.value[index].description
 useText.value = "Use: " + fetchDataMongoDB.value[index].use
@@ -56,6 +60,7 @@ useText.value = "Use: " + fetchDataMongoDB.value[index].use
       </div>
     <div id="plantTextContainer">
       <h2> {{ plantNameText }}</h2>
+      <p> {{ plantManyNameTexts }}</p>
       <p> {{ habitatText }} </p>
       <p> {{ descriptionText }} </p>
       <p> {{ useText }} </p>
