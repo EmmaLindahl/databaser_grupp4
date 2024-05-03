@@ -14,7 +14,7 @@ exports.createPlantInfo = (async(req, res) => {
     const { descriptionInput, habitatInput, useInput } = req.body;
 
     try {
-        const newPlantInfo = new PlantInfoModel({ description:descriptionInput, habitat:habitatInput, use:useInput });
+        const newPlantInfo = new Plants({ description:descriptionInput, habitat:habitatInput, use:useInput });
         const insertedPlantInfo = await newPlantInfo.save();
         return res.status(201).json(insertedPlantInfo);
     }
