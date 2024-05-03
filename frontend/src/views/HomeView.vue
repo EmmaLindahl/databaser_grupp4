@@ -42,8 +42,8 @@ onMounted(async () => {
 const onClick = (index) => {
   plantNameText.value = fetchDataSQL.value[index].PlantName
   console.log(fetchDataSQL.value[index])
-  plantManyNameTexts.value = fetchDataSQL.value[index].PlantBinomialName + " | " + fetchDataSQL.value[index].PlantFamilyName
-    + " | " + fetchDataSQL.value[index].PlantGenusName + " | " + fetchDataSQL.value[index].PlantSpeciesName
+  plantManyNameTexts.value = "Binomial name: " + fetchDataSQL.value[index].PlantBinomialName + " | Family: " + fetchDataSQL.value[index].PlantFamilyName
+    + " | Genus: " + fetchDataSQL.value[index].PlantGenusName + " | Species: " + fetchDataSQL.value[index].PlantSpeciesName
   habitatText.value = "Habitat: " + fetchDataMongoDB.value[index].habitat
   descriptionText.value = "Description: " + fetchDataMongoDB.value[index].description
   useText.value = "Use: " + fetchDataMongoDB.value[index].use
