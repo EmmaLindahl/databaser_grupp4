@@ -26,7 +26,7 @@ onMounted(async () => {
 
 onMounted(async () => {
   try {
-    const response = await fetch('http://localhost:3000/api/PlantInfo');
+    const response = await fetch('http://localhost:3000/api/PlantInfos');
     if (!response.ok) {
       throw new Error('Network response was not ok.');
     }
