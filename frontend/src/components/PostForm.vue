@@ -241,204 +241,9 @@ async function addPlant() {
 </template>
 
 <style scoped>
-/* .container {} */
-/* @import '../assets/css/bootstrap.css'; */
-
-
-/* body { */
-/* background-color: white; */
-/* background-image: url("./pictures/background/succulent.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
-/* } */
-
-/* .card {
-
-  display: flex;
-  width: 1200px;
-  height: 800px;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
-
-
-}
-
-.front,
-.back {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  background-color: white;
-  border-radius: 10px;
-
-
-}
-
-.back {
-  transform: rotateY(180deg);
-}
-
-.flipped {
-  transform: rotateY(180deg);
-}
-
-.card-content {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 15rem;
-}
-
-
-.image-container-front,
-.image-container-back {
-  flex: 1;
-  height: 100%;
-  background-color: #399c7e;
-
-}
-
-.image-container-front {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.image-container-back {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-
-#h1-content {
-  margin-right: 7.5rem;
-  margin-bottom: .8rem;
-  font-size: 35px;
-  color: #553c30;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#h2-content {
-  margin: 0 5rem 8rem 5rem;
-  font-size: 18px;
-  color: #553c30;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
-
-.textarea-field {
-  width: 450px;
-  height: 150px;
-  padding: 12px 20px;
-  margin: .5rem;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
-  resize: none;
-  font-family: Arial, sans-serif;
-
-
-}
-
-.input-field {
-  width: 450px;
-  margin: .5rem;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
-  padding: 12px 20px;
-}
-
-.textarea-field:focus,
-.input-field:focus {
-  border-color: #399c7e;
-  outline: none;
-}
-
-.button {
-  background-color: #399c7e;
-  border: none;
-  border-radius: .25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  color: #fff;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  letter-spacing: .5px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 1.25;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-  transition: all 250ms;
-}
-
-.button:hover,
-.button:focus {
-  background-color: #4ebc9b;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-}
-
-#next-button {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-}
-
-#next-button:hover {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  transform: translateX(5px);
-
-}
-
-#back-button {
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
-}
-
-#back-button:hover {
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
-  transform: translateX(-5px);
-
-}
-
-#add-button {
-  position: absolute;
-  bottom: 5%;
-  left: 33%;
-}
-
-#add-button:hover {
-  position: absolute;
-  bottom: 5%;
-  left: 33%;
-  transform: translateY(-5px);
-
-} */
-
-
 @media screen and (max-height: 3000px) {
 
-  /* @import '../assets/css/bootstrap.css'; */
-
-  /* @import "~bootstrap/dist/css/bootstrap.min.css"; */
-
   .card {
-
     display: flex;
     width: 1000px;
     height: 600px;
@@ -449,7 +254,6 @@ async function addPlant() {
 
 
   }
-
 
   .front,
   .back {
@@ -834,7 +638,7 @@ async function addPlant() {
     opacity: 1;
   }
 
-  @media only screen and (max-width: 1440px) {
+  @media only screen and (max-width: 1440px) and (min-height: 900px) {
 
     .custom-tooltip .tooltiptext-binomial {
       left: 91.7%;
@@ -929,37 +733,39 @@ async function addPlant() {
   }
 }
 
-@media screen and (max-height: 700px) {
-  .card {
+@media screen and (max-height: 900px) {
 
+  /* .container {
+  } */
+
+  .card {
     display: flex;
-    width: 800;
-    height: 500px;
+    width: 800px;
+    height: 480px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 
   }
 
-  /* .front { */
-  /* background-color: white; */
-  /* border-radius: 10px; */
+  .front,
+  .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    background-color: white;
+    border-radius: 10px;
 
-  /* justify-items: center; */
-  /* align-items: center; */
-  /* background-color: #399c7e; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* } */
+
+  }
 
   .back {
-    /* background-color: white; */
-
-    /* background-color: #399c7e; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
     transform: rotateY(180deg);
 
   }
@@ -970,17 +776,12 @@ async function addPlant() {
 
   .card-content {
     flex: 1;
-    /* position: relative; */
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    /* display: flex; */
-    /* justify-items: center;
-  align-items: center; */
-    /* border: red solid 5px; */
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
   }
 
 
@@ -990,8 +791,6 @@ async function addPlant() {
     flex: 1;
     height: 100%;
     background-color: #399c7e;
-    /* border: red solid 5px; */
-
   }
 
   .image-container-front {
@@ -1004,67 +803,157 @@ async function addPlant() {
     border-bottom-right-radius: 10px;
   }
 
-  /* #flower-image { */
-  /* width: 500px;
-  height: 500px; */
-  /* mix-blend-mode: multiply; */
-  /* background-color: white; */
-  /* background-image: url('../assets/red_flower.png'); */
-  /* background-size: cover; */
-  /* or contain, depending on your preference */
-  /* background-color: transparent;
-  background-blend-mode: normal; */
 
+  #front-image {
+    width: 100%;
+    height: 480px;
+    display: block;
+    overflow: hidden;
+  }
 
-  /* } */
+  #back-image {
+    position: relative;
+    top: 60%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    height: 340px;
+  }
+
+  /* #back-image1 {
+    position: relative;
+    bottom: 40%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+  } */
+
 
   #h1-content {
-    margin-right: 7.4rem;
-    margin-bottom: .8rem;
+    margin-right: 4.7rem;
+    margin-bottom: .6rem;
     font-size: 24px;
     color: #553c30;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
   }
 
   #h2-content {
-    margin: 0 5rem 1rem 5rem;
+    margin: 0 4rem .9rem 3.3rem;
     font-size: 12px;
     color: #553c30;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
 
   }
 
   .text-image {
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    margin: 0 2rem;
+    margin: 0 3rem;
   }
 
-  #h1-image {
+  #h1-front-image {
     color: whitesmoke;
-    margin-bottom: 1rem;
+    position: absolute;
+    bottom: 54%;
+    right: 58%;
     font-weight: 500;
-    font-size: 30px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 35px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Horizontal offset, vertical offset, blur radius, shadow color */
 
   }
 
-  #h2-image {
+  #h2-front-image {
     color: whitesmoke;
+    position: absolute;
+    bottom: 34%;
+    right: 58%;
     margin-bottom: 5rem;
     font-weight: 100;
     font-size: 12px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Horizontal offset, vertical offset, blur radius, shadow color */
 
   }
 
+  #h3-front-image {
+    color: whitesmoke;
+    position: absolute;
+    bottom: 31%;
+    right: 55%;
+    margin-bottom: 5rem;
+    font-weight: 100;
+    font-size: 12px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Horizontal offset, vertical offset, blur radius, shadow color */
+
+  }
+
+  .white-line {
+    position: absolute;
+    bottom: 50%;
+    right: 70%;
+    width: 150px;
+    height: 3px;
+    background-color: whitesmoke;
+    transform: rotate(35deg);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  #h1-back-image {
+    color: whitesmoke;
+    position: absolute;
+    bottom: 85%;
+    left: 50%;
+    /* margin-bottom: 5rem; */
+    margin: 0 2rem;
+    font-weight: 100;
+    font-size: 14px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Horizontal offset, vertical offset, blur radius, shadow color */
+
+  }
+
+  #h2-back-image {
+    color: whitesmoke;
+    position: absolute;
+    bottom: 69%;
+    left: 67.5%;
+    /* margin-bottom: 5rem; */
+    margin: 0 2rem;
+    font-weight: 100;
+    font-size: 15px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  #h3-back-image {
+    color: whitesmoke;
+    position: absolute;
+    bottom: 64.5%;
+    left: 75%;
+    /* margin-bottom: 5rem; */
+    margin: 0 1rem;
+    font-weight: 100;
+    font-size: 15px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
   .textarea-field {
-    width: 350px;
-    height: 80px;
-    padding: 8px 16px;
+    width: 300px;
+    height: 70px;
+    padding: 7px 14px;
     margin: .5rem;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -1072,20 +961,20 @@ async function addPlant() {
     background-color: #f8f8f8;
     font-size: 12px;
     resize: none;
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
 
 
   }
 
   .input-field {
-    width: 350px;
+    width: 300px;
     margin: .5rem;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 3px;
     background-color: #f8f8f8;
     font-size: 12px;
-    padding: 8px 16px;
+    padding: 7px 14px;
 
     /* margin: 8px 0; */
   }
@@ -1096,8 +985,151 @@ async function addPlant() {
     outline: none;
   }
 
+  .form-row {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
 
-  /* <button class="button-5" role="button">Button 5</button> */
+  .question-mark {
+    width: 255px;
+    margin-left: 0;
+
+  }
+
+
+  .question-mark-icon {
+    height: 36px;
+    width: 36px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: 2px solid #ccc;
+    background-color: #f8f8f8;
+    padding: 3px 8px 10px 8px;
+    text-align: center;
+    cursor: pointer;
+    /* align-items: center; */
+    /* Add some padding to create space between the icon and the border */
+
+    /* Adjust the size of the icon */
+    color: #555;
+    /* Adjust the color of the icon */
+    /* font-weight: bold; */
+    /* Optionally, make the icon bold */
+  }
+
+  .alert-position-front {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    background-color: #ff8383;
+    border: none;
+    color: black;
+    width: 50%;
+    font-size: 12px;
+  }
+
+  .alert-position-back {
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    background-color: #ff8383;
+    border: none;
+    color: black;
+    width: 50%;
+    font-size: 12px;
+  }
+
+  .alert-position-success {
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    background-color: #50C878;
+    border: none;
+    color: black;
+    width: 50%;
+    font-size: 12px;
+  }
+
+  .input-error textarea {
+    border-color: #ff8383;
+  }
+
+  .input-error input {
+    border-color: #ff8383;
+  }
+
+  /* Tooltip */
+  .custom-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #399c7e;
+    color: whitesmoke;
+    text-align: center;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .custom-tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .custom-tooltip .tooltiptext-binomial {
+    top: 47%;
+    left: 96%;
+  }
+
+  .custom-tooltip .tooltiptext-genus {
+    top: 36.5%;
+    left: 96%;
+  }
+
+  .custom-tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #399c7e transparent transparent;
+  }
+
+  .custom-tooltip .tooltiptext {
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  .custom-tooltip:hover .tooltiptext {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 1180px) {
+
+    .custom-tooltip .tooltiptext-binomial {
+      left: 91.2%;
+      top: 27%;
+      transform: translateX(-50%);
+    }
+
+    .custom-tooltip .tooltiptext-genus {
+      left: 91.2%;
+      top: 16%;
+      transform: translateX(-50%);
+    }
+
+    .custom-tooltip .tooltiptext::after {
+      top: 100%;
+      left: 50%;
+      margin-top: 0;
+      margin-left: -5px;
+      border-color: #399c7e transparent transparent transparent;
+    }
+  }
+
 
   /* Button */
   .button {
@@ -1108,7 +1140,7 @@ async function addPlant() {
     color: #fff;
     cursor: pointer;
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: .5px;
     font-weight: 600;
     justify-content: center;
@@ -1129,42 +1161,42 @@ async function addPlant() {
 
   #next-button {
     position: absolute;
-    bottom: 5%;
-    right: 5%;
+    bottom: 4%;
+    right: 4%;
   }
 
   #next-button:hover {
     position: absolute;
-    bottom: 5%;
-    right: 5%;
+    bottom: 4%;
+    right: 4%;
     transform: translateX(5px);
 
   }
 
   #back-button {
     position: absolute;
-    bottom: 5%;
-    left: 5%;
+    bottom: 4%;
+    left: 4%;
   }
 
   #back-button:hover {
     position: absolute;
-    bottom: 5%;
-    left: 5%;
+    bottom: 4%;
+    left: 4%;
     transform: translateX(-5px);
 
   }
 
-  #add-button {
+  #submit {
     position: absolute;
-    bottom: 5%;
-    left: 33%;
+    bottom: 4%;
+    left: 35%;
   }
 
-  #add-button:hover {
+  #submit:hover {
     position: absolute;
-    bottom: 5%;
-    left: 33%;
+    bottom: 4%;
+    left: 35%;
     transform: translateY(-5px);
 
   }
