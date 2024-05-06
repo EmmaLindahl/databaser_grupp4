@@ -1,13 +1,13 @@
 <template>
     <main>
-        <img src="/src/pictures/logo/logo.png" alt="logo">
+        <a href="/"><img src="/src/pictures/logo/logo.png" alt="logo"></a>
         <div id="caption">
             <h1>Happy Plant</h1>
             <h2>Don't eat them before you consult your local doctor</h2>
         </div>
         <ul>
-            <li><a href="http://localhost:5173">All plants</a></li>
-            <li><a href="http://localhost:5173/upload">Add plant</a></li>
+            <li><a href="/">All plants</a></li>
+            <li><a href="/upload">Add plant</a></li>
         </ul>
     </main>
 </template>
