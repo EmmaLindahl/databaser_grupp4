@@ -205,6 +205,19 @@ async function addPlant() {
               </button>
             </div>
           </div>
+          <div class="Neon Neon-theme-dragdropbox">
+            <input
+              style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+              name="files[]" id="filer_input2" multiple="multiple" type="file">
+            <div class="Neon-input-dragDrop">
+              <div class="Neon-input-inner">
+                <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                <div class="Neon-input-text">
+                  <h3>Drag & Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span>
+                </div><a class="Neon-input-choose-btn blue">Browse Files</a>
+              </div>
+            </div>
+          </div>
           <!-- <div class="form-row"> -->
           <div>
             <input class="input-field" placeholder="Species" v-model="formData.PlantSpeciesName.value">
@@ -251,8 +264,7 @@ async function addPlant() {
     transition: transform 0.5s;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-
+    background-color: transparent;
   }
 
   .front,
@@ -301,6 +313,7 @@ async function addPlant() {
     flex: 1;
     height: 100%;
     background-color: #399c7e;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 
     /* border: red solid 5px; */
 
@@ -327,9 +340,9 @@ async function addPlant() {
     /* height: 100%; */
     /* background-size: cover; */
     width: 100%;
-    height: 600px;
-    display: block;
-    overflow: hidden;
+    height: 599px;
+    /* display: block;
+    overflow: hidden; */
     /* background-color: transparent; */
 
     /* filter: grayscale(100%); */
@@ -494,6 +507,7 @@ async function addPlant() {
     background-color: #f8f8f8;
     font-size: 14px;
     resize: none;
+
     /* font-family: Arial, sans-serif; */
 
 
@@ -508,7 +522,6 @@ async function addPlant() {
     background-color: #f8f8f8;
     font-size: 14px;
     padding: 10px 18px;
-
     /* margin: 8px 0; */
   }
 
@@ -733,6 +746,79 @@ async function addPlant() {
   }
 }
 
+/* Upload image css */
+
+.Neon {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #494949;
+  position: relative;
+}
+
+.Neon * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.Neon-input-dragDrop {
+  display: block;
+  width: 380px;
+  margin: 0 auto 20px auto;
+  padding: 30px;
+  color: grey;
+  background: #fff;
+  border: 2px solid #ccc;
+  background-color: #f8f8f8;
+  text-align: center;
+  -webkit-transition: box-shadow 0.3s, border-color 0.3s;
+  -moz-transition: box-shadow 0.3s, border-color 0.3s;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.Neon-input-dragDrop .Neon-input-icon {
+  font-size: 48px;
+  margin-top: -10px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.Neon-input-text h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.Neon-input-text span {
+  font-size: 12px;
+}
+
+.Neon-input-choose-btn.blue {
+  color: #399c7e;
+  border: 1px solid #399c7e;
+}
+
+.Neon-input-choose-btn {
+  display: inline-block;
+  padding: 8px 14px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8d9496;
+  border-radius: 3px;
+  border: 1px solid #c6c6c6;
+  vertical-align: middle;
+  background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
 @media screen and (max-height: 900px) {
 
   /* .container {
@@ -746,6 +832,7 @@ async function addPlant() {
     transition: transform 0.5s;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: transparent;
 
 
   }
@@ -1199,6 +1286,79 @@ async function addPlant() {
     left: 35%;
     transform: translateY(-5px);
 
+  }
+
+  /* Upload image css */
+
+  .Neon {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #494949;
+    position: relative;
+  }
+
+  .Neon * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .Neon-input-dragDrop {
+    display: block;
+    width: 300px;
+    margin: 0 auto 12px auto;
+    padding: 23px;
+    color: grey;
+    background: #fff;
+    border: 2px solid #ccc;
+    background-color: #f8f8f8;
+    text-align: center;
+    -webkit-transition: box-shadow 0.3s, border-color 0.3s;
+    -moz-transition: box-shadow 0.3s, border-color 0.3s;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .Neon-input-dragDrop .Neon-input-icon {
+    font-size: 48px;
+    margin-top: -10px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .Neon-input-text h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .Neon-input-text span {
+    font-size: 10px;
+  }
+
+  .Neon-input-choose-btn.blue {
+    color: #399c7e;
+    border: 1px solid #399c7e;
+  }
+
+  .Neon-input-choose-btn {
+    display: inline-block;
+    padding: 7px 12px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 10px;
+    font-weight: bold;
+    color: #8d9496;
+    border-radius: 3px;
+    border: 1px solid #c6c6c6;
+    vertical-align: middle;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
   }
 }
 </style>
