@@ -67,6 +67,8 @@ const onClick = (index) => {
         <p> {{ useText }} </p>
       </div>
     </div>
+
+
   </main>
 </template>
 
