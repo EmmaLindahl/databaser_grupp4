@@ -100,7 +100,6 @@ const onClick = (index) => {
   background-color: #f2f2f2;
   margin: 2px;
   border: none;
-  /*  align-self: flex-start; */
   align-self: center;
   cursor: pointer;
   font-size: 15px;
@@ -111,7 +110,6 @@ const onClick = (index) => {
   background-color: #e6e6e6;
   box-shadow: 2px 2px grey;
 }
-
 
 #plantTextContainer {
   width: 60%;
