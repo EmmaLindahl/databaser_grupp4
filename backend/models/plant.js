@@ -1,11 +1,12 @@
-const mongoose = require ('mongoose')
+const mongoose = require('mongoose')
 
-const Plants = new mongoose.Schema ({
-    description : {
+const Plants = new mongoose.Schema({
+
+    description: {
         type: String,
         required: true
     },
-    habitat : {
+    habitat: {
         type: String,
         required: true
     },

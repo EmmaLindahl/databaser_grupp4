@@ -12,6 +12,14 @@ import PostForm from '../components/PostForm.vue';
 
 
 <style>
+#link_home {
+  text-decoration: none;
+}
+
+#link_postform {
+  text-decoration: underline;
+}
+
 .container {
   display: flex;
   justify-content: center;

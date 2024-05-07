@@ -1,20 +1,22 @@
-const Plants = require ('../models/plant')
+const Plants = require('../models/plant')
 
 //Get
-exports.getPlantInfo = ( async (req, res) => {
+exports.getPlantInfo = (async (req, res) => {
     try {
         const allPlantInfos = await Plants.find()
-        return res.status(200).json(allPlantInfos)        
+        return res.status(200).json(allPlantInfos)
     } catch (error) {
-        return res.status(500).json({error: error.message})
+        return res.status(500).json({ error: error.message })
     }
 });
 
-exports.createPlantInfo = (async(req, res) => {
-    const { descriptionInput, habitatInput, useInput } = req.body;
+exports.createPlantInfo = (async (req, res) => {
+    const { ID, descriptionInput, habitatInput, useInput } = req.body;
 
     try {
-        const newPlantInfo = new Plants({ description:descriptionInput, habitat:habitatInput, use:useInput });
+        const newPlantInfo = new Plants({
+            _id: ID, description: descriptionInput, habitat: habitatInput, use: useInput
+        });
         const insertedPlantInfo = await newPlantInfo.save();
         return res.status(201).json(insertedPlantInfo);
     }
@@ -25,17 +27,17 @@ exports.createPlantInfo = (async(req, res) => {
     }
 });
 
-exports.updatePlantInfo = (async(req, res) => {
-    const { ID, descriptionInput, habitatInput, useInput } = req.body;
+exports.updatePlantInfo = (async (req, res) => {
+    const { descriptionInput, habitatInput, useInput } = req.body;
 
     try {
-        await PlantInfoModel.updateOne({ _id: ID}, {
-            _id: ID,
+
+        const PlantInfoModel = await Plants.updateOne({ _id: ID }, {
             description: descriptionInput,
             habitat: habitatInput,
             use: useInput
         });
-        const updatedPlantInfo = await PlantInfoModel.find({_id: ID});
+        const updatedPlantInfo = await Plants.find({ _id: ID });
         return res.status(200).json(updatedPlantInfo);
     }
     catch (error) {
@@ -45,10 +47,10 @@ exports.updatePlantInfo = (async(req, res) => {
     }
 });
 
-exports.deletePlantInfo = (async(req, res) => {
+exports.deletePlantInfo = (async (req, res) => {
     const { ID } = req.body;
     try {
-        const deletedPlantInfo = await Plants.deleteOne({_id: ID});
+        const deletedPlantInfo = await Plants.deleteOne({ _id: ID });
         return res.status(200).json(deletedPlantInfo)
     }
     catch (error) {

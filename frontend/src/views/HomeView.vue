@@ -73,6 +73,14 @@ const onClick = (index) => {
 </template>
 
 <style>
+#link_home {
+  text-decoration: underline;
+}
+
+#link_postform {
+  text-decoration: none;
+}
+
 #plantInfoContainer {
   display: flex;
   gap: 20px;

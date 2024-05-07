@@ -20,16 +20,16 @@ exports.getBinomialName = (async (req, res) => {
 
 //Post
 exports.createBinomialName = (async (req, res) => {
-  const { binomialNameName } = req.body;
+  const { BinomialName } = req.body;
 
   // Vi använder Prepared Statements genom ? i SQL-koden och att ange paramatern i query-funktionen
-  let sql = 'INSERT INTO BinomialNameTable (binomialNameName) VALUES (?)';
-  let params = [binomialNameName];
+  let sql = 'INSERT INTO BinomialNameTable (BinomialName) VALUES (?)';
+  let params = [BinomialName];
 
-  if (!binomialNameName || binomialNameName.trim().length < 1) {
+  if (!BinomialName || BinomialName.trim().length < 1) {
     return res.status(400).json({
       success: false,
-      error: 'Du har inte skrivit in något latinskt namn',
+      error: 'Ett latinskt namn saknas.',
     });
   }
 
@@ -52,12 +52,12 @@ exports.createBinomialName = (async (req, res) => {
 
 //update
 exports.updateBinomialName = (async (req, res) => {
-  const { binomialNameName, BinomialNameId } = req.body;
+  const { BinomialName, BinomialNameId } = req.body;
   // Vi använder Prepared Statements genom ? i SQL-koden och att ange paramatern i query-funktionen
-  let sql = 'UPDATE BinomialNameTable SET binomialNameName = ? WHERE BinomialNameId = ?';
-  let params = [binomialNameName, BinomialNameId];
+  let sql = 'UPDATE BinomialNameTable SET BinomialName = ? WHERE BinomialNameId = ?';
+  let params = [BinomialName, BinomialNameId];
 
-  if (!binomialNameName || binomialNameName.trim().length < 1) {
+  if (!BinomialName || BinomialName.trim().length < 1) {
     return res.status(400).json({
       success: false,
       error: 'Du har inte skrivit in något latinskt namn',
@@ -107,7 +107,7 @@ exports.deleteBinomialName = (async (req, res) => {
       return res.status(201).json({
         success: true,
         error: '',
-        message: 'det latinska namnet är nu raderad!'
+        message: 'Det latinska namnet är nu raderad!'
       });
     });
   } catch (error) {
