@@ -1,8 +1,5 @@
 <script setup>
-// import { Tooltip } from 'bootstrap';
-
-// import '../assets/js/bootstrap'
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 
 const
@@ -21,32 +18,14 @@ const formData = {
   descriptionInput: ref(''),
   habitatInput: ref(''),
   useInput: ref('')
-
 }
-
-// let tooltipList = []
-
-// onMounted(() => {
-//   const tooltipTriggerList = [...document.querySelectorAll('[data-bs-toggle="tooltip"]')];
-//   tooltipList = tooltipTriggerList.map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-// });
-
-// $(function () {
-//   $('[data-toggle="tooltip"]').tooltip()
-// })
-// $(function () {
-//   $('[data-toggle="tooltip"]').tooltip();
-// })
-
 
 function flipCard() {
   if (formData.PlantName.value && formData.descriptionInput.value !== "") {
     isFlipped.value = !isFlipped.value
     frontError.value = false
-
   } else {
     frontError.value = true
-
   }
 }
 
@@ -67,18 +46,13 @@ async function addPlant() {
           PlantGenusName: formData.PlantGenusName.value,
           PlantFamilyName: formData.PlantFamilyName.value,
           PlantSpeciesName: formData.PlantSpeciesName.value
-
-
         })
-
       })
       const responseData = await response.json()
       console.log(responseData)
     } catch (error) {
       console.error('Error', error)
-
     }
-
     try {
       const response = await fetch('http://localhost:3000/api/PlantInfos', {
         method: 'POST',
@@ -89,70 +63,42 @@ async function addPlant() {
           descriptionInput: formData.descriptionInput.value,
           habitatInput: formData.habitatInput.value,
           useInput: formData.useInput.value
-
-
         })
-
       })
       const responseData = await response.json()
       console.log(responseData)
     } catch (error) {
       console.error('Error', error)
-
     }
-
   } else {
     backError.value = true
-
   }
-
 }
-
-
-
 
 </script>
 
 
 
 <template>
-
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
   <div class="container">
     <div class="card" :class="{ flipped: isFlipped }">
       <div class="front">
-
         <div class="image-container-front">
-          <!-- <img src="../assets/red_flower.png" alt="Flower" id="flower-image"> -->
-          <!-- <div id="flower-image"> -->
           <img id="front-image" src="../pictures/background/form_plant1.png">
-          <!-- </div> -->
           <div class="text-image">
             <h1 id="h1-front-image">Happy Plant</h1>
             <h2 id="h2-front-image">Don't eat them before you</h2>
             <h3 id="h3-front-image">consult your local doctor</h3>
-            <!-- <div class="white-line"></div> -->
-
           </div>
-
         </div>
         <div class="card-content">
-          <!-- <div class="form-content"> -->
           <h1 id="h1-content">Add your own Plant</h1>
           <h2 id="h2-content">Carefully read and fill up all the inputs with your plant information</h2>
           <div :class="{ 'input-error': frontError && !formData.PlantName.value }">
             <input class="input-field" placeholder="Plant Name" v-model="formData.PlantName.value">
           </div>
-          <!-- <div class="form-row"> -->
           <div>
             <input class="input-field" placeholder="Family" v-model="formData.PlantFamilyName.value">
-            <!-- <div class="question-mark-icon custom-tooltip">&#63;
-              <span class="tooltiptext-family tooltiptext">Binomial means a two-part name used to
-                identify a specific species, with the first part indicating the
-                genus and the second part denoting the species within that
-                genus.</span>
-            </div> -->
           </div>
           <div class="form-row">
             <input class="input-field question-mark" placeholder="Genus" v-model="formData.PlantGenusName.value">
@@ -186,7 +132,6 @@ async function addPlant() {
           <button class="button" id="next-button" @click="flipCard">Next ➔</button>
         </div>
       </div>
-
       <div class="back">
         <div class="card-content">
           <div v-if="backError">
@@ -218,17 +163,9 @@ async function addPlant() {
               </div>
             </div>
           </div>
-          <!-- <div class="form-row"> -->
           <div>
             <input class="input-field" placeholder="Species" v-model="formData.PlantSpeciesName.value">
-            <!-- <div class="question-mark-icon custom-tooltip">&#63;
-              <span class="tooltiptext-species tooltiptext">Binomial means a two-part name used to
-                identify a specific species, with the first part indicating the
-                genus and the second part denoting the species within that
-                genus.</span>
-            </div> -->
           </div>
-
           <div :class="{ 'input-error': backError && !formData.habitatInput.value }">
             <textarea class="textarea-field" placeholder="Habitat" v-model="formData.habitatInput.value"></textarea>
           </div>
@@ -244,12 +181,9 @@ async function addPlant() {
             click the "Submit" button to add the plant to our database.</h1>
           <h2 id="h2-back-image">Thank you for contributing</h2>
           <h3 id="h3-back-image">to our plant collection!</h3>
-          <!-- <img id="back-image1" src="../pictures/background/hanging_plant.png"> -->
         </div>
       </div>
-
     </div>
-
   </div>
 </template>
 
@@ -278,13 +212,10 @@ async function addPlant() {
     backface-visibility: hidden;
     background-color: white;
     border-radius: 10px;
-
-
   }
 
   .back {
     transform: rotateY(180deg);
-
   }
 
   .flipped {
@@ -293,30 +224,19 @@ async function addPlant() {
 
   .card-content {
     flex: 1;
-    /* position: relative; */
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    /* display: flex; */
-    /* justify-items: center;
-  align-items: center; */
-    /* border: red solid 5px; */
     margin-bottom: 12rem;
   }
-
-
 
   .image-container-front,
   .image-container-back {
     flex: 1;
     height: 100%;
     background-color: #399c7e;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-
-    /* border: red solid 5px; */
-
   }
 
   .image-container-front {
@@ -329,32 +249,9 @@ async function addPlant() {
     border-bottom-right-radius: 10px;
   }
 
-  /* .flower-image {
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
-  } */
-
   #front-image {
-    /* width: 100%; */
-    /* height: 100%; */
-    /* background-size: cover; */
     width: 100%;
     height: 599px;
-    /* display: block;
-    overflow: hidden; */
-    /* background-color: transparent; */
-
-    /* filter: grayscale(100%); */
-    /* mix-blend-mode: multiply; */
-    /* background-color: white; */
-    /* background-image: url('../pictures/logo/form_plant.svg'); */
-    /* background-size: cover; */
-    /* or contain, depending on your preference */
-    /* background-color: transparent;
-    background-blend-mode: normal; */
-
-
   }
 
   #back-image {
@@ -365,16 +262,6 @@ async function addPlant() {
     width: 400px;
     height: 400px;
   }
-
-  /* #back-image1 {
-    position: relative;
-    bottom: 40%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-  } */
-
 
   #h1-content {
     margin-right: 7.1rem;
@@ -395,7 +282,6 @@ async function addPlant() {
   }
 
   .text-image {
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -410,10 +296,7 @@ async function addPlant() {
     right: 59%;
     font-weight: 500;
     font-size: 40px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   #h2-front-image {
@@ -424,10 +307,7 @@ async function addPlant() {
     margin-bottom: 5rem;
     font-weight: 100;
     font-size: 14px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   #h3-front-image {
@@ -438,10 +318,7 @@ async function addPlant() {
     margin-bottom: 5rem;
     font-weight: 100;
     font-size: 14px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   .white-line {
@@ -460,14 +337,10 @@ async function addPlant() {
     position: absolute;
     bottom: 85%;
     left: 50%;
-    /* margin-bottom: 5rem; */
     margin: 0 2rem;
     font-weight: 100;
     font-size: 17px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   #h2-back-image {
@@ -475,11 +348,9 @@ async function addPlant() {
     position: absolute;
     bottom: 69%;
     left: 69%;
-    /* margin-bottom: 5rem; */
     margin: 0 2rem;
     font-weight: 100;
     font-size: 18px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -488,11 +359,9 @@ async function addPlant() {
     position: absolute;
     bottom: 65%;
     left: 74%;
-    /* margin-bottom: 5rem; */
     margin: 0 2rem;
     font-weight: 100;
     font-size: 18px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -507,10 +376,6 @@ async function addPlant() {
     background-color: #f8f8f8;
     font-size: 14px;
     resize: none;
-
-    /* font-family: Arial, sans-serif; */
-
-
   }
 
   .input-field {
@@ -522,7 +387,6 @@ async function addPlant() {
     background-color: #f8f8f8;
     font-size: 14px;
     padding: 10px 18px;
-    /* margin: 8px 0; */
   }
 
   .textarea-field:focus,
@@ -540,7 +404,6 @@ async function addPlant() {
   .question-mark {
     width: 328px;
     margin-left: 0;
-
   }
 
 
@@ -554,14 +417,7 @@ async function addPlant() {
     padding: 6px 8px 10px 8px;
     text-align: center;
     cursor: pointer;
-    /* align-items: center; */
-    /* Add some padding to create space between the icon and the border */
-
-    /* Adjust the size of the icon */
     color: #555;
-    /* Adjust the color of the icon */
-    /* font-weight: bold; */
-    /* Optionally, make the icon bold */
   }
 
   .alert-position-front {
@@ -609,7 +465,6 @@ async function addPlant() {
     background-color: #399c7e;
     color: whitesmoke;
     text-align: center;
-    /* padding: 5px 0; */
     padding: 18px;
     border-radius: 6px;
     font-size: 16px;
@@ -699,10 +554,6 @@ async function addPlant() {
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   }
 
-  /* .button:hover {
-  transform: translateX(5px);
-} */
-
   #next-button {
     position: absolute;
     bottom: 5%;
@@ -714,7 +565,6 @@ async function addPlant() {
     bottom: 5%;
     right: 5%;
     transform: translateX(5px);
-
   }
 
   #back-button {
@@ -728,7 +578,6 @@ async function addPlant() {
     bottom: 5%;
     left: 5%;
     transform: translateX(-5px);
-
   }
 
   #submit {
@@ -742,12 +591,10 @@ async function addPlant() {
     bottom: 5%;
     left: 35%;
     transform: translateY(-5px);
-
   }
 }
 
 /* Upload image css */
-
 .Neon {
   font-family: sans-serif;
   font-size: 14px;
@@ -821,9 +668,6 @@ async function addPlant() {
 
 @media screen and (max-height: 900px) {
 
-  /* .container {
-  } */
-
   .card {
     display: flex;
     width: 800px;
@@ -833,8 +677,6 @@ async function addPlant() {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: transparent;
-
-
   }
 
   .front,
@@ -848,13 +690,10 @@ async function addPlant() {
     backface-visibility: hidden;
     background-color: white;
     border-radius: 10px;
-
-
   }
 
   .back {
     transform: rotateY(180deg);
-
   }
 
   .flipped {
@@ -870,8 +709,6 @@ async function addPlant() {
     align-items: center;
     margin-bottom: 8rem;
   }
-
-
 
   .image-container-front,
   .image-container-back {
@@ -890,7 +727,6 @@ async function addPlant() {
     border-bottom-right-radius: 10px;
   }
 
-
   #front-image {
     width: 100%;
     height: 480px;
@@ -907,16 +743,6 @@ async function addPlant() {
     height: 340px;
   }
 
-  /* #back-image1 {
-    position: relative;
-    bottom: 40%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-  } */
-
-
   #h1-content {
     margin-right: 4.7rem;
     margin-bottom: .6rem;
@@ -932,11 +758,9 @@ async function addPlant() {
     color: #553c30;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 600;
-
   }
 
   .text-image {
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -951,10 +775,7 @@ async function addPlant() {
     right: 58%;
     font-weight: 500;
     font-size: 35px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   #h2-front-image {
@@ -965,10 +786,7 @@ async function addPlant() {
     margin-bottom: 5rem;
     font-weight: 100;
     font-size: 12px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   #h3-front-image {
@@ -979,10 +797,7 @@ async function addPlant() {
     margin-bottom: 5rem;
     font-weight: 100;
     font-size: 12px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   .white-line {
@@ -1001,14 +816,10 @@ async function addPlant() {
     position: absolute;
     bottom: 85%;
     left: 50%;
-    /* margin-bottom: 5rem; */
     margin: 0 2rem;
     font-weight: 100;
     font-size: 14px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Horizontal offset, vertical offset, blur radius, shadow color */
-
   }
 
   #h2-back-image {
@@ -1016,11 +827,9 @@ async function addPlant() {
     position: absolute;
     bottom: 69%;
     left: 67.5%;
-    /* margin-bottom: 5rem; */
     margin: 0 2rem;
     font-weight: 100;
     font-size: 15px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -1029,11 +838,9 @@ async function addPlant() {
     position: absolute;
     bottom: 64.5%;
     left: 75%;
-    /* margin-bottom: 5rem; */
     margin: 0 1rem;
     font-weight: 100;
     font-size: 15px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -1048,9 +855,6 @@ async function addPlant() {
     background-color: #f8f8f8;
     font-size: 12px;
     resize: none;
-    /* font-family: Arial, sans-serif; */
-
-
   }
 
   .input-field {
@@ -1062,8 +866,6 @@ async function addPlant() {
     background-color: #f8f8f8;
     font-size: 12px;
     padding: 7px 14px;
-
-    /* margin: 8px 0; */
   }
 
   .textarea-field:focus,
@@ -1081,7 +883,6 @@ async function addPlant() {
   .question-mark {
     width: 255px;
     margin-left: 0;
-
   }
 
 
@@ -1095,14 +896,7 @@ async function addPlant() {
     padding: 3px 8px 10px 8px;
     text-align: center;
     cursor: pointer;
-    /* align-items: center; */
-    /* Add some padding to create space between the icon and the border */
-
-    /* Adjust the size of the icon */
     color: #555;
-    /* Adjust the color of the icon */
-    /* font-weight: bold; */
-    /* Optionally, make the icon bold */
   }
 
   .alert-position-front {
@@ -1217,7 +1011,6 @@ async function addPlant() {
     }
   }
 
-
   /* Button */
   .button {
     background-color: #399c7e;
@@ -1257,7 +1050,6 @@ async function addPlant() {
     bottom: 4%;
     right: 4%;
     transform: translateX(5px);
-
   }
 
   #back-button {
@@ -1271,7 +1063,6 @@ async function addPlant() {
     bottom: 4%;
     left: 4%;
     transform: translateX(-5px);
-
   }
 
   #submit {
@@ -1285,11 +1076,9 @@ async function addPlant() {
     bottom: 4%;
     left: 35%;
     transform: translateY(-5px);
-
   }
 
   /* Upload image css */
-
   .Neon {
     font-family: sans-serif;
     font-size: 14px;
